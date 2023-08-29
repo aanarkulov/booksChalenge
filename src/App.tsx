@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Routes, Route, HashRouter } from 'react-router-dom';
-import { urlBookId } from 'redux/selectors/index';
+import { urlBookId } from 'store/book/selectors';
 import DescriptionPage from 'pages/description';
 import Main from './pages/main';
 import * as S from './App.styles';

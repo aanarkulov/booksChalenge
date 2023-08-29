@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IDataBooks } from 'redux/saga/sagaGetBookByID';
+import { IDataBooks } from 'store/book/sagas';
 import { basicUrl } from '../constant';
 
 export const getBooksApi = (queryParams: string):Promise<AxiosResponse<IDataBooks>> => {

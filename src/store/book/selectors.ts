@@ -1,5 +1,5 @@
 import { IVolumeInfo } from 'pages/main/items/item';
-import { IDataBook } from 'redux/saga/sagaGetBookByID';
+import { IDataBook } from 'store/book/sagas';
 
 export interface IDataBooks {
 	kind: string;
@@ -7,11 +7,11 @@ export interface IDataBooks {
 }
 
 export interface ICurrentState {
-	books: { book: IDataBook };
+	book: { book: IDataBook };
 }
 
 export interface IStateBooksProperties {
-	books: IStateProperties;
+	book: IStateProperties;
 }
 
 export interface IProps {
@@ -34,7 +34,7 @@ interface IItemProps {
 }
 
 export interface IState {
-	books: {
+	book: {
 		books: IDataBook[];
 		book: IDataBook; 
 		loading: boolean;
@@ -45,15 +45,15 @@ export interface IState {
 	};
 }
 
-export const urlBookId = (state: IState) => state.books.id;
+export const urlBookId = (state: IState) => state.book.id;
 
-export const isLoading = (state: IState) => state.books?.loading;
+export const isLoading = (state: IState) => state.book?.loading;
 
 export const state = (state: IStateBooksProperties) =>
-	state.books.books.data?.items;
+	state.book.books.data?.items;
 
 export const bookData = (state: ICurrentState) =>
-	state.books?.book?.data?.volumeInfo ?? [];
+	state.book?.book?.data?.volumeInfo ?? [];
 
 export const imageLinks = (state: ICurrentState) =>
-	state.books.book?.data?.volumeInfo?.imageLinks?.smallThumbnail ?? '';
+	state.book.book?.data?.volumeInfo?.imageLinks?.smallThumbnail ?? '';

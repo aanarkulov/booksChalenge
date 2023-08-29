@@ -2,8 +2,8 @@ import { FC, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { MagnifyingGlass } from 'react-loader-spinner';
-import { getBooks, getIdBook } from 'redux/reducer';
-import { isLoading, urlBookId } from 'redux/selectors';
+import { bookActions } from 'store/book/slice';
+import { isLoading, urlBookId } from 'store/book/selectors';
 import { Button } from 'components/button';
 import Item, { IVolumeInfo } from './item';
 import * as S from './index.styles';
@@ -38,7 +38,7 @@ const Items: FC<IStateItemsProps> = ({ state, sortingField }): JSX.Element => {
 	};
 
 	useEffect(() => {
-		dispatch(getBooks(id));
+		dispatch(bookActions.getBooksStart(id));
 	}, [dispatch, id]);
 
 	useEffect(() => {
@@ -60,7 +60,7 @@ const Items: FC<IStateItemsProps> = ({ state, sortingField }): JSX.Element => {
 		});
 	};
 	const handleIdBook = (id: number): void => {
-		dispatch(getIdBook(id));
+		dispatch(bookActions.getBookStart(id));
 	};
 
 	return (

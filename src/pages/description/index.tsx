@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { MagnifyingGlass } from 'react-loader-spinner';
-import { isLoading, bookData, imageLinks } from 'redux/selectors';
+import { isLoading, bookData, imageLinks } from 'store/book/selectors';
 import { Button } from 'components/button';
 import * as S from './index.styles';
 
